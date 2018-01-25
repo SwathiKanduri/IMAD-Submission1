@@ -138,11 +138,11 @@ export default class PayPalCheckout extends React.Component {
                         <div><span id="state"></span>, <span id="zip"></span>, <span id="country"></span></div>      
                         &nbsp; &nbsp; &nbsp;  <button id="confirmButton">Complete Payment</button>
                     </div>
-                    <div id="thanks" className="hidden">
+                    <div id="thanks !" className="hidden">
                          Thanks, <span id="thanksname"></span>!
                     </div>
                 </div>
-            </div>
+            </div>  
         );
     }
 }
