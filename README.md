@@ -1,6 +1,6 @@
 React is a JavaScript library to create interactive user interfaces. The core library is focussed on the view layer. It is declarative and component based.This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
+<br>
 You can find the more indetailed guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 
