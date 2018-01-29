@@ -1,7 +1,7 @@
 React is a JavaScript library to create interactive user interfaces. The core library is focussed on the view layer. It is declarative and component based.This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 <br>
-You can find the more indetailed guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
+You can find the more indetailed guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) 
 
 
 The project is about adding a [Paypal Express checkout button](https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/) as on of the payment methods on our webpage. 
