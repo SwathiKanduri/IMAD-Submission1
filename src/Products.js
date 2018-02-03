@@ -7,15 +7,19 @@ import './App.css';
 const btn_style={
     cursor:"pointer"
 }
-
+ 
+// const total=0; 
 
 export default class Product extends React.Component{
     constructor(props){
         super(props);
-        this.state={ count:1,
+        this.state={ count:1,total:0, sub_total:0,
         }
     }
     
+   /* componentDidMount() {
+        this.props.setClick(this.calctotal)
+     }  */
 
     addOne() {                                                       // adds one item when button clicked                                  
             this.setState(prevState => {
@@ -34,7 +38,7 @@ export default class Product extends React.Component{
          });
        }
 
-       calculate(){
+     /*  calculate(){                                             // another way to calculate the sub total
       //  var qty=document.getElementById('qty_div').value;
         //var qty1=Number(qty);
         // console.log(qty);
@@ -45,16 +49,23 @@ export default class Product extends React.Component{
         let sub_price= sub_price_value.match(/\d+/g);
         let sub_price_result=sub_price[0];
        console.log(sub_price_result);
-    }
+    }  */
 
     calc(){
-           // let qty = document.getElementById('qty_div').innerHTML;
-          //  let result = qty.match(/\d+/g);
-         // var subtotal= Number(this.props.price * result).toFixed(2);
             var subtotal= Number(this.props.price * this.state.count).toFixed(2);
-            console.log(subtotal);
+            // this.calctotal();
+            console.log('subtotoal is '+ subtotal);
             return subtotal;
+            document.getElementById("show_sub").innerHTML = " Sub total is: " +subtotal; 
+
           }
+        
+     calctotal(){
+                this.setState(prevState => {
+               sub_total : prevState.Sub_total + this.calc()});
+               console.log('sub_total is'+this.state.subtotal)
+          }
+
 
     render(){
         return(
@@ -70,17 +81,16 @@ export default class Product extends React.Component{
                     </TableHeader>
                     <TableBody displayRowCheckbox={false} >
                         <TableRow >
-                            <TableRowColumn><img src={this.props.src}  width="70" height="70" 
+                            <TableRowColumn><img src={this.props.src}  width="20" height="20" 
                                 alt={this.props.alt} className="zoom" />
                              </TableRowColumn>
-                            <TableRowColumn>{this.props.name}<br/> {this.props.description}</TableRowColumn>
+                            <TableRowColumn style={{textWrap:'normal', wordWrap:'breakWord'}}>{this.props.name}<br/> {this.props.description}</TableRowColumn>
                             <TableRowColumn id="price_row" >Price per each item:<br/> {this.props.price} <br/>
-                            <button style={btn_style} onClick={this.calc.bind(this)}> Sub Total </button>
-                          { /* <span id="show_subtotal"> {this.calc.bind(this)} </span> */}
+                                <p> subtotal is: </p><span id="show_sub" >{ this.calc()} </span>
                             </TableRowColumn>
                             <TableRowColumn>
-                            <input style={btn_style} type='button' onClick={this.addOne.bind(this)} value='add an item'/>
-                            <input style={btn_style} type='button' onClick={this.removeOne.bind(this)} value='remove an item'/>
+                                <input style={btn_style} type='button' onClick={this.addOne.bind(this)} value='add an item'/>
+                                <input style={btn_style} type='button' onClick={this.removeOne.bind(this)} value='remove an item'/>
                                 <br/> <div> quantity: </div> <div id="qty_div" > {this.state.count}  </div> 
                             </TableRowColumn>
                         </TableRow>
@@ -94,6 +104,6 @@ export default class Product extends React.Component{
 Product.propTypes={
     name:PropTypes.string,
     price:PropTypes.number,
-    description:PropTypes.description,
+    description:PropTypes.string,
 
 };
