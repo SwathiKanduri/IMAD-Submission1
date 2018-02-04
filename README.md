@@ -73,7 +73,9 @@ fetch(EXECUTE_PAYMENT_URL, {
         })
         .catch((err)=>console.log(err))
    ```
-The client sends the token amount taken as input from the user to the server using [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and then the server sends the paymentID back to the client. Once it is done, the client will be prompted to login to their paypal account on a pop up window and once it is successful, client can make payment by clicking on the pay now button and then client may get an acknowledgement on successful payment.  <br/>
+
+The client sends the token amount taken as input from the user to the server using [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) and then the server sends the paymentID back to the client. Once it is done, the client will be prompted to login to their paypal account on a pop up window and once it is successful, client can make payment by clicking on the pay now button and then client may get an acknowledgement on successful payment.  <br/> <br/>
+
 [Here](https://medium.com/@swathikanduri/add-paypal-express-checkout-button-to-your-webpage-using-reactjs-3d9bb07cb38b) is the link to know about configuring the button and making payments using paypal sandbox accounts.  <br/>
 
 
