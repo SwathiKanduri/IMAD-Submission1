@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import paypal from 'paypal-checkout';
 
 
@@ -26,14 +25,14 @@ export default class FetchPaypal extends React.Component {
                 inputamt : inputamt 
             };
 
-            return new paypal.Promise(function(resolve,reject) { 
+            return new paypal.Promise(function(resolve,reject) {
             fetch(CREATE_PAYMENT_URL, {
                     method: 'POST',
-                   // headers : new Headers(),
-                    headers:{
-                        'Accept': 'application/json',
+                  //  headers : new Headers(),
+                     headers:{
+                       'Accept': 'application/json',
                         'Content-Type': 'application/json',
-                    },
+                     },
                     body:JSON.stringify({inputamt: inputamt})
                 }).then((res) => res.json())
                 .then((data) => {
@@ -44,29 +43,23 @@ export default class FetchPaypal extends React.Component {
         }
         }
 
-    onAuthorize(data,actions){
-        console.log('onautho method called')
+
+    onAuthorize(data){
+        console.log('onauth method called')
         // post the payment ID, payer ID to the server so that, it takes these params
         // and then executes the payment. 
         // and write a then(function) to show a confirmation page etc,. if u want
-       // var send_data = {
-           // paymentID: data.paymentID,
-         //   payerID: data.payerID
-      //  };
+       
         fetch(EXECUTE_PAYMENT_URL, {
             method: 'POST',
-            body: JSON.stringify({
-                paymentID: data.paymentID,
-                payerID: data.payerID
-            }),
             headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-        }).then((res) => res.json())
-        .then((data) => { console.log('payment is executed successfully')
-                          console.log(data.paymentID) 
-                          console.log(data.payertID)    
+            body: JSON.stringify({paymentID: data.payerID,
+            }),
+            headers:new Headers()
+        }) .then((data) => { console.log('payment is executed successfully');    
         })
         .catch((err)=>console.log(err))
        
@@ -79,8 +72,8 @@ export default class FetchPaypal extends React.Component {
                       <span> <input name="amt_input" id="amt_input_id" type="number" />  </span>
                 </div> &nbsp; &nbsp; 
                 <PayPalButton 
-                   
                     payment={this.payment}
+                    env={'sandbox'}
                     onAuthorize={this.onAuthorize}
                 />       
             </div>
