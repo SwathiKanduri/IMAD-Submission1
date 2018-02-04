@@ -8,13 +8,13 @@ The Express Checkout flow keeps the buyer on your web page or mobile app through
 
 How to integrate it to our webpage? </br>
 For Express Checkout integrations, PayPal provides the JavaScript checkout.js script. To begin your integration, add the checkout.js script to your client to render the PayPal button on your web page.[Here](https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/add-paypal-button/) is the link to the paypal developers site where you can find the sample code. 
-In your PayPal checkout script, you'll configure the look and feel of your checkout button, initiate a payment, and then define what happens when a buyer authorizes or cancels a payment. Finally, you'll determine what happens if an error occurs.
+In your PayPal checkout script, you'll configure the look and feel of your checkout button, initiate a payment, and then define what happens when a buyer authorizes or cancels a payment. Finally, you'll determine what happens if an error occurs. <br/> <br/>
 
 The frontend was coded using ReactJS. ReactJS is a JavaScript library to create interactive user interfaces. The core library is focussed on the view layer. It is declarative and component based.concerned with the view layer,it can be hooked up to any backend. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app/blob/master/README.md#creating-an-app).
 You can find the detailed guide about create react app [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
 [this](https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm) is another source to 
 
-Pre-requisites: 
+###Pre-requisites:###
 
 To set up the ReactJS environment the below are used:
 
@@ -26,12 +26,12 @@ To set up the ReactJS environment the below are used:
 
 One can follow the above mentioned links to create react app, or [here](https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm) another link to set up manually. 
 
-Run the code locally: <br/>
+*Run the code locally:* <br/>
 
 Once the above mentioned pre requisites are met, to start/run the app(in windows OS machine), follow the below commands 
 - open the command prompt (gitbash is recommended)
 - type in the command, "npm start"
-This should open the web browser in the localhost://3000 port, that renders the paypal express checkout button. 
+This should open the web browser in the localhost://3000 port, that renders the paypal express checkout button. <br/>
 
 Configuring the paypal button and make payments to a merchant : <br/>
 The paypal developers website provides both sandbox and live(prodution) to make use of the paypal button. For this project, we followed used the sandbox accounts to check the transaction details and notifications of the successful payments. 
@@ -41,7 +41,7 @@ There are different integration methods provided by paypal, out of which we choo
 
 Below is the glimpse of how the payments will be created and executed on server side. 
 
-###payment() method
+payment() method
 ```javascript
  return new paypal.Promise(function(resolve,reject) {
             fetch(CREATE_PAYMENT_URL, {
@@ -59,7 +59,7 @@ Below is the glimpse of how the payments will be created and executed on server 
             }) ;
 ```
 
-###OnAuthorize() method: 
+OnAuthorize() method: 
 ```javascript
 fetch(EXECUTE_PAYMENT_URL, {
             method: 'POST',
