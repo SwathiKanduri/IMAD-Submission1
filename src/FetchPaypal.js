@@ -46,7 +46,7 @@ export default class FetchPaypal extends React.Component {
 
 
     onAuthorize(data){
-        console.log('onauth method called')
+        console.log('onAuthorize method called')
         // post the payment ID, payer ID to the server so that, it takes these params
         // and then executes the payment. 
         // and write a then(function) to show a confirmation page etc,. if u want
@@ -57,10 +57,9 @@ export default class FetchPaypal extends React.Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({paymentID: data.payerID,
-            }),
-            headers:new Headers()
-        }) .then((data) => { console.log('payment is executed successfully');    
+            body: JSON.stringify({paymentID: data.paymentID,payerID:data.payerID}),
+        }) .then((data) => { 
+            console.log('payment is executed successfully');    
         })
         .catch((err)=>console.log(err))
        
