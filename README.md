@@ -14,7 +14,7 @@ The frontend was coded using ReactJS. ReactJS is a JavaScript library to create 
 You can find the detailed guide about create react app [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
 [this](https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm) is another source to 
 
-###Pre-requisites:###
+### Pre-requisites:
 
 To set up the ReactJS environment the below are used:
 
@@ -26,7 +26,7 @@ To set up the ReactJS environment the below are used:
 
 One can follow the above mentioned links to create react app, or [here](https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm) another link to set up manually. 
 
-*Run the code locally:* <br/>
+**Run the code locally:** <br/>
 
 Once the above mentioned pre requisites are met, to start/run the app(in windows OS machine), follow the below commands 
 - open the command prompt (gitbash is recommended)
@@ -41,7 +41,7 @@ There are different integration methods provided by paypal, out of which we choo
 
 Below is the glimpse of how the payments will be created and executed on server side. 
 
-payment() method
+### payment() method
 ```javascript
  return new paypal.Promise(function(resolve,reject) {
             fetch(CREATE_PAYMENT_URL, {
@@ -59,7 +59,7 @@ payment() method
             }) ;
 ```
 
-OnAuthorize() method: 
+### OnAuthorize() method: 
 ```javascript
 fetch(EXECUTE_PAYMENT_URL, {
             method: 'POST',
